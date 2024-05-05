@@ -3,8 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <title>SingUp</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
 
+<div class="container d-flex justify-content-center align-items-center flex-wrap">
+    <form th:action="@{/signup}" method="post">
+        <div class="form-group">
+            <h4 class="text-primary text-center">User Signup</h4>
+        </div>
+        <div class="form-group">
+            <div>
+                <label for="firstName">First Name:</label>
+                <input type="text" class="form-control" id="firstName" name="firstName" required>
+            </div>
+            <div>
+                <label for="lastName">Last Name:</label>
+                <input type="text" class="form-control" id="lastName" name="lastName" required>
+            </div>
+            <div>
+                <label for="age">Age:</label>
+                <input type="number" class="form-control" id="age" name="age" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="job">Job Type:</label>
+            <input list="jobType" class="form-control" id="job" name="job" required>
+            <datalist id="jobType">
+                <option th:value="${JobType[0]}"></option>
+                <option th:value="${JobType[1]}"></option>
+            </datalist>
+        </div>
+        <div class="form-group">
+            <label for="division">Division:</label>
+            <input list="divisions" class="form-control" id="division" name="division" required>
+            <datalist id="divisions">
+                <option th:value="${Division[0]}"></option>
+                <option th:value="${Division[1]}"></option>
+                <option th:value="${Division[2]}"></option>
+                <option th:value="${Division[3]}"></option>
+                <option th:value="${Division[4]}"></option>
+                <option th:value="${Division[5]}"></option>
+                <option th:value="${Division[6]}"></option>
+                <option th:value="${Division[7]}"></option>
+            </datalist>
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" class="form-control" id="password" name="password" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Signup</button>
+    </form>
+</div>
 </body>
 </html>
