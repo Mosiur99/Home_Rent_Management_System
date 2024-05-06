@@ -33,7 +33,7 @@ public class User {
     private String password;
 
     @Column(nullable = false)
-    private Long age;
+    private Integer age;
 
     @Enumerated(EnumType.ORDINAL)
     private JobType jobType;

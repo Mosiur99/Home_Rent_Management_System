@@ -1,15 +1,12 @@
 package com.home_rent.home_rent_management_system.controller;
 
-import com.home_rent.home_rent_management_system.entity.User;
 import com.home_rent.home_rent_management_system.entity.enums.Division;
 import com.home_rent.home_rent_management_system.entity.enums.JobType;
 import com.home_rent.home_rent_management_system.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class userController {
@@ -34,8 +31,14 @@ public class userController {
     }
 
     @PostMapping("/signup")
-    public String signup(@RequestBody User user) {
-        userService.signup(user);
+    public String signup(@RequestParam Integer age,
+                         @RequestParam String email,
+                         @RequestParam JobType jobType,
+                         @RequestParam String password,
+                         @RequestParam String lastName,
+                         @RequestParam String firstName,
+                         @RequestParam Division division) {
+        userService.signup(age, email, jobType, password, lastName, firstName, division);
         return "redirect:/signup";
     }
 }
