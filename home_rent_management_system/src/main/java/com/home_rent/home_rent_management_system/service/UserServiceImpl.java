@@ -23,7 +23,13 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void signup(Integer age, String email, JobType jobType, String password, String lastName, String firstName, Division division) {
+    public void signup(Integer age,
+                       String email,
+                       JobType jobType,
+                       String password,
+                       String lastName,
+                       String firstName,
+                       Division division) {
         if(Objects.nonNull(userRepository.duplicateEmailCheck(email))){
             throw new ResourceNotFoundExceptionHandler();
         }

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>SingUp</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container d-flex justify-content-center align-items-center flex-wrap">
+    <form th:action="@{/house-added}" method="post">
+        <div class="form-group">
+            <h4 class="text-primary text-center">New Home Added</h4>
+        </div>
+        <div class="form-group">
+            <div>
+                <label for="location">Location:</label>
+                <input type="text" class="form-control" id="location" name="location" required>
+            </div>
+            <div>
+                <label for="name">House Name:</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+            <div>
+                <label for="houseNumber">House Number:</label>
+                <input type="number" class="form-control" id="houseNumber" name="houseNumber" required>
+            </div>
+            <div>
+                <label for="roadNumber">Road Number:</label>
+                <input type="number" class="form-control" id="roadNumber" name="roadNumber" required>
+            </div>
+            <div>
+                <label for="roomSize">Room Size:</label>
+                <input type="number" class="form-control" id="roomSize" name="roomSize" required>
+            </div>
+            <div>
+                <label for="description">Description:</label>
+                <input type="text" class="form-control" id="description" name="description" required>
+            </div>
+            <div>
+                <label for="availableDate">Available Date:</label>
+                <input type="date" class="form-control" id="availableDate" name="availableDate" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="house">House Type:</label>
+            <input list="houseType" class="form-control" id="house" name="house" required>
+            <datalist id="houseType">
+                <option th:value="${HouseType[0]}"></option>
+                <option th:value="${HouseType[1]}"></option>
+                <option th:value="${HouseType[2]}"></option>
+            </datalist>
+        </div>
+        <div class="form-group">
+            <label for="rent">Rent For:</label>
+            <input list="rentFor" class="form-control" id="rent" name="rent" required>
+            <datalist id="rentFor">
+                <option th:value="${RentFor[0]}"></option>
+                <option th:value="${RentFor[1]}"></option>
+                <option th:value="${RentFor[2]}"></option>
+                <option th:value="${RentFor[3]}"></option>
+                <option th:value="${RentFor[4]}"></option>
+            </datalist>
+        </div>
+        <div class="form-group">
+            <label for="division">Division:</label>
+            <input list="divisions" class="form-control" id="division" name="division" required>
+            <datalist id="divisions">
+                <option th:value="${Division[0]}"></option>
+                <option th:value="${Division[1]}"></option>
+                <option th:value="${Division[2]}"></option>
+                <option th:value="${Division[3]}"></option>
+                <option th:value="${Division[4]}"></option>
+                <option th:value="${Division[5]}"></option>
+                <option th:value="${Division[6]}"></option>
+                <option th:value="${Division[7]}"></option>
+            </datalist>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+</body>
+</html>

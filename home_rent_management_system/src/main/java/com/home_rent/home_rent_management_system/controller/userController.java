@@ -2,6 +2,7 @@ package com.home_rent.home_rent_management_system.controller;
 
 import com.home_rent.home_rent_management_system.entity.enums.Division;
 import com.home_rent.home_rent_management_system.entity.enums.JobType;
+import com.home_rent.home_rent_management_system.entity.enums.UserType;
 import com.home_rent.home_rent_management_system.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -27,6 +28,7 @@ public class userController {
     public String signup(Model model) {
         model.addAttribute("JobType", JobType.values());
         model.addAttribute("Division", Division.values());
+        model.addAttribute("UserType", UserType.values());
         return "signup";
     }
 
