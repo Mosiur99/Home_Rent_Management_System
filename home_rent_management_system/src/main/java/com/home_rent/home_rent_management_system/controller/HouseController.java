@@ -7,6 +7,7 @@ import com.home_rent.home_rent_management_system.entity.enums.RentFor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 @Controller
 public class HouseController {
@@ -19,5 +20,10 @@ public class HouseController {
         model.addAttribute("RentFor", RentFor.values());
 
         return "houseAdded";
+    }
+
+    @GetMapping("/house-details/{houseId}")
+    public String houseDetails(Model model, @PathVariable Long houseId) {
+
     }
 }
