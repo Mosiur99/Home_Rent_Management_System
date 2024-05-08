@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -56,4 +57,7 @@ public class House {
 
     @Enumerated(EnumType.ORDINAL)
     private Floor floor;
+
+    @OneToMany(mappedBy = "house")
+    private List<Review> reviews;
 }
