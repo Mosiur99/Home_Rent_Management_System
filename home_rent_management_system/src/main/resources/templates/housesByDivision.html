@@ -8,6 +8,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <p th:text="${house.houseName}">House Name</p>
+    <div th:each="house : ${houses}" class="m-3">
+        <h6 th:text="${house.houseName}"></h6>
+    </div>
 </body>
 </html>

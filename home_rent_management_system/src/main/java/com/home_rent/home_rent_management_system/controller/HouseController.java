@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.time.LocalDate;
-import java.util.Date;
+import java.util.List;
 
 @Controller
 public class HouseController {
@@ -37,23 +37,38 @@ public class HouseController {
     }
 
     @PostMapping("/house-added")
-    public String houseAdded(@RequestParam Long roomSize,
-                            @RequestParam RentFor rentFor,
-                            @RequestParam String location,
-                            @RequestParam Long roadNumber,
-                            @RequestParam String houseName,
-                            @RequestParam Long houseNumber,
-                            @RequestParam Division division,
-                            @RequestParam String description,
-                            @RequestParam HouseType houseType,
+    public String houseAdded(@RequestParam Floor floor,
+                             @RequestParam Long roomSize,
+                             @RequestParam RentFor rentFor,
+                             @RequestParam String location,
+                             @RequestParam Long roadNumber,
+                             @RequestParam String houseName,
+                             @RequestParam Long houseNumber,
+                             @RequestParam Division division,
+                             @RequestParam String description,
+                             @RequestParam HouseType houseType,
                              @RequestParam LocalDate availableDate
                             ) {
-        houseService.houseAdded(roomSize, rentFor, location, roadNumber, houseName, houseNumber,
+        houseService.houseAdded(floor, roomSize, rentFor, location, roadNumber, houseName, houseNumber,
                 division, description, houseType, availableDate);
         return "redirect:/house-added";
     }
 
-    @GetMapping("/house-details/{houseId}")
+    @GetMapping("/houses")
+    public String getHouses(Model model) {
+        List<House> houses = houseService.getHouses();
+        model.addAttribute("houses", houses);
+        return "home";
+    }
+
+    @GetMapping("/houses/{Division}")
+    public String getHousesByDivision(Model model, @PathVariable(name = "Division", required = true) Division division) {
+        List<House> houses = houseService.getHousesByDivision(division);
+        model.addAttribute("houses", houses);
+        return "housesByDivision";
+    }
+
+    @GetMapping("/house/{houseId}")
     public String houseDetails(Model model, @PathVariable Long houseId) {
         House house = houseService.getHouse(houseId);
         model.addAttribute("house", house);
