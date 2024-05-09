@@ -1,9 +1,6 @@
 package com.home_rent.home_rent_management_system.entity;
 
-import com.home_rent.home_rent_management_system.entity.enums.Division;
-import com.home_rent.home_rent_management_system.entity.enums.Floor;
-import com.home_rent.home_rent_management_system.entity.enums.HouseType;
-import com.home_rent.home_rent_management_system.entity.enums.RentFor;
+import com.home_rent.home_rent_management_system.entity.enums.*;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -57,6 +54,9 @@ public class House {
 
     @Enumerated(EnumType.ORDINAL)
     private Floor floor;
+
+    @Enumerated(EnumType.ORDINAL)
+    private HouseStatus houseStatus;
 
     @OneToMany(mappedBy = "house")
     private List<Review> reviews;

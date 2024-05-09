@@ -28,11 +28,10 @@ public class HouseController {
 
     @GetMapping("/house-added")
     public String houseAdded(Model model) {
-        model.addAttribute("Division", Division.values());
-        model.addAttribute("HouseType", HouseType.values());
         model.addAttribute("Floor", Floor.values());
         model.addAttribute("RentFor", RentFor.values());
-
+        model.addAttribute("Division", Division.values());
+        model.addAttribute("HouseType", HouseType.values());
         return "houseAdded";
     }
 
@@ -62,7 +61,8 @@ public class HouseController {
     }
 
     @GetMapping("/houses/{Division}")
-    public String getHousesByDivision(Model model, @PathVariable(name = "Division", required = true) Division division) {
+    public String getHousesByDivision(Model model,
+                                      @PathVariable(name = "Division", required = true) Division division) {
         List<House> houses = houseService.getHousesByDivision(division);
         model.addAttribute("houses", houses);
         return "housesByDivision";

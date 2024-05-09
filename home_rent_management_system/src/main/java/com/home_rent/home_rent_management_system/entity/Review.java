@@ -25,9 +25,9 @@ public class Review {
     @Column(nullable = false)
     private String comment;
 
+    @Column(nullable = false)
     private int rating;
 
-    @Column(nullable = false)
     private Date createdDate;
 
     @PrePersist
