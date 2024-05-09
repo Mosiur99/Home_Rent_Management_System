@@ -31,7 +31,7 @@ public class UserServiceImpl implements UserService {
                        String firstName,
                        Division division) {
         if(Objects.nonNull(userRepository.duplicateEmailCheck(email))){
-            throw new ResourceNotFoundExceptionHandler("");
+            throw new ResourceNotFoundExceptionHandler("this email was already registered");
         }
 
         User user = new User();

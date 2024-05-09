@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>SingUp</title>
+    <title>New House Add</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -20,8 +20,8 @@
                 <input type="text" class="form-control" id="location" name="location" required>
             </div>
             <div>
-                <label for="name">House Name:</label>
-                <input type="text" class="form-control" id="name" name="name" required>
+                <label for="houseName">House Name:</label>
+                <input type="text" class="form-control" id="houseName" name="houseName" required>
             </div>
             <div>
                 <label for="houseNumber">House Number:</label>
@@ -46,7 +46,7 @@
         </div>
         <div class="form-group">
             <label for="house">House Type:</label>
-            <input list="houseType" class="form-control" id="house" name="house" required>
+            <input list="houseType" class="form-control" id="house" name="houseType" required>
             <datalist id="houseType">
                 <option th:value="${HouseType[0]}"></option>
                 <option th:value="${HouseType[1]}"></option>
@@ -55,7 +55,7 @@
         </div>
         <div class="form-group">
             <label for="rent">Rent For:</label>
-            <input list="rentFor" class="form-control" id="rent" name="rent" required>
+            <input list="rentFor" class="form-control" id="rent" name="rentFor" required>
             <datalist id="rentFor">
                 <option th:value="${RentFor[0]}"></option>
                 <option th:value="${RentFor[1]}"></option>
