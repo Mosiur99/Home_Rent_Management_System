@@ -8,6 +8,18 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <p th:text="${house.houseName}">House Name</p>
+    <div class="container">
+        <div class="row">
+            <div class="col"><h5 th:text="${house.houseName}"></h5></div>
+            <div class="col"><h5 th:text="${house.houseNumber}"></h5></div>
+            <div class="col"><h5 th:text="${house.roadNumber}"></h5></div>
+        </div>
+        <div class="row">
+            <div class="col"><a th:href="${house.location}">House Location</a></div>
+        </div>
+        <div class="row">
+            <div class="col"><h6 th:text="${house.description}"></h6></div>
+        </div>
+    </div>
 </body>
 </html>
