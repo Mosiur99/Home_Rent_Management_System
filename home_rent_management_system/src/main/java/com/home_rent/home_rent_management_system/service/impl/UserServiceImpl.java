@@ -16,11 +16,12 @@ import java.util.Objects;
 public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
-//    private final PasswordEncoder passwordEncoder;
+    private final PasswordEncoder passwordEncoder;
 
     @Autowired
-    public UserServiceImpl(UserRepository userRepository) {
+    public UserServiceImpl(UserRepository userRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
     @Override
@@ -39,10 +40,21 @@ public class UserServiceImpl implements UserService {
         user.setAge(age);
         user.setEmail(email);
         user.setJobType(jobType);
-        user.setPassword(password);
+        user.setPassword(passwordEncoder.encode(password));
         user.setLastName(lastName);
         user.setFirstName(firstName);
         user.setDivision(division);
         userRepository.save(user);
+    }
+
+    @Override
+    public void validUser(String email, String password) {
+        User user = userRepository.duplicateEmailCheck(email);
+        if(Objects.isNull(user)) {
+            throw new ResourceNotFoundExceptionHandler("Invalid User");
+        }
+        if(!user.getPassword().equals(password)) {
+            throw new ResourceNotFoundExceptionHandler("Invalid User");
+        }
     }
 }

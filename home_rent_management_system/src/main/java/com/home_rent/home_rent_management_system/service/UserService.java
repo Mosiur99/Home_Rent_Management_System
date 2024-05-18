@@ -12,4 +12,6 @@ public interface UserService {
                 String lastName,
                 String firstName,
                 Division division);
+
+    void validUser(String email, String password);
 }

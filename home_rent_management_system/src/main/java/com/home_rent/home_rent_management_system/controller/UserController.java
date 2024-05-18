@@ -42,6 +42,18 @@ public class UserController {
         return "redirect:/signup";
     }
 
+    @GetMapping("/login")
+    public String login() {
+        return "login";
+    }
+
+    @PostMapping("/login")
+    public String login(@RequestParam String email,
+                        @RequestParam String password) {
+        userService.validUser(email, password);
+        return "redirect:/user/dashboard";
+    }
+
     @GetMapping("/user/dashboard")
     public String userDashboard() {
         return "dashboard";
