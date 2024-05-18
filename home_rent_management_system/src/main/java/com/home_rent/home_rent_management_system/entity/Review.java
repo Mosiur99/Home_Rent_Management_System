@@ -23,6 +23,9 @@ public class Review {
     private String userName;
 
     @Column(nullable = false)
+    private String email;
+
+    @Column(nullable = false)
     private String comment;
 
     @Column(nullable = false)

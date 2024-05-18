@@ -41,4 +41,9 @@ public class UserController {
         httpSession.setAttribute("message", "User Register Successfully...");
         return "redirect:/signup";
     }
+
+    @GetMapping("/user/dashboard")
+    public String userDashboard() {
+        return "dashboard";
+    }
 }

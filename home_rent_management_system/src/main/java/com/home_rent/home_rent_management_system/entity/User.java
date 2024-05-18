@@ -2,6 +2,7 @@ package com.home_rent.home_rent_management_system.entity;
 
 import com.home_rent.home_rent_management_system.entity.enums.Division;
 import com.home_rent.home_rent_management_system.entity.enums.JobType;
+import com.home_rent.home_rent_management_system.entity.enums.Role;
 import com.home_rent.home_rent_management_system.entity.enums.UserType;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -44,4 +45,6 @@ public class User {
 
     @Enumerated(EnumType.ORDINAL)
     private UserType userType;
+
+    private Role role = Role.USER;
 }

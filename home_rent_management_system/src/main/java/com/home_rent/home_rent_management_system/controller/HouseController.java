@@ -26,7 +26,7 @@ public class HouseController {
     }
 
 
-    @GetMapping("/house-added")
+    @GetMapping("/user/house-added")
     public String houseAdded(Model model) {
         model.addAttribute("Floor", Floor.values());
         model.addAttribute("RentFor", RentFor.values());
@@ -35,7 +35,7 @@ public class HouseController {
         return "houseAdded";
     }
 
-    @PostMapping("/house-added")
+    @PostMapping("/user/house-added")
     public String houseAdded(@RequestParam Floor floor,
                              @RequestParam Long roomSize,
                              @RequestParam RentFor rentFor,
