@@ -5,39 +5,66 @@
     <title>Home Page</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script th:src="@{/js/script.js}" type="text/javascript"></script>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
-<body>
-    <div>
-<!--        <div>-->
-<!--            <a th:href="@{/logout}"><button class = "btn btn-primary float-right">Log Out</button></a>-->
-<!--        </div>-->
-<!--        <div class="d-flex justify-content-center align-items-center my-3">-->
-<!--            <h5>User Dashboard</h5>-->
-<!--        </div>-->
-        <div class="container p-4">
-            <table class="table">
-                <thead>
-                <tr>
-                    <th>Division</th>
-                    <th>House No:</th>
-                    <th>Road No:</th>
-                    <th>Details</th>
-<!--                    <th>Action</th>-->
-                </tr>
-                </thead>
-                <tbody>
-                <tr th:each = "house : ${houses}">
-                    <td th:text = "${house.division}"></td>
-                    <td th:text = "${house.houseNumber}"></td>
-                    <td th:text = "${house.roadNumber}"></td>
-                    <td>
-                        <a th:href="@{${'/house/'+house.id}}" class="btn btn-secondary">Details</a>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
+<body id="home">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Division
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    District
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
     </div>
+</nav>
+
+<div class="container p-4">
+    <table class="table">
+        <thead>
+        <tr>
+            <th class="text-info">Division</th>
+            <th class="text-info">House No:</th>
+            <th class="text-info">Road No:</th>
+            <th class="text-info">Details</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="house : ${houses}">
+            <td class="text-white bg-dark" th:text="${house.division}"></td>
+            <td class="text-white bg-dark" th:text="${house.houseNumber}"></td>
+            <td class="text-white bg-dark" th:text="${house.roadNumber}"></td>
+            <td>
+                <a th:href="@{${'/house/' + house.id}}" class="btn btn-secondary">Details</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
 </body>
 </html>
