@@ -1,6 +1,5 @@
 package com.home_rent.home_rent_management_system.service;
 
-import com.home_rent.home_rent_management_system.entity.enums.Division;
 import com.home_rent.home_rent_management_system.entity.enums.JobType;
 
 public interface UserService {
@@ -10,8 +9,7 @@ public interface UserService {
                 JobType jobType,
                 String password,
                 String lastName,
-                String firstName,
-                Division division);
+                String firstName);
 
     void validUser(String email, String password);
 }

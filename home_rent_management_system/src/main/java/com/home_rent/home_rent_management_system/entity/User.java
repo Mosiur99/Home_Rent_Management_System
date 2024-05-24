@@ -1,6 +1,5 @@
 package com.home_rent.home_rent_management_system.entity;
 
-import com.home_rent.home_rent_management_system.entity.enums.Division;
 import com.home_rent.home_rent_management_system.entity.enums.JobType;
 import com.home_rent.home_rent_management_system.entity.enums.Role;
 import com.home_rent.home_rent_management_system.entity.enums.UserType;
@@ -39,9 +38,6 @@ public class User {
 
     @Enumerated(EnumType.ORDINAL)
     private JobType jobType;
-
-    @Enumerated(EnumType.ORDINAL)
-    private Division division;
 
     @Enumerated(EnumType.ORDINAL)
     private UserType userType;

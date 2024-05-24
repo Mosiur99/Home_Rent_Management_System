@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script th:src="@{/js/script.js}" type="text/javascript"></script>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<div class="container d-flex justify-content-center align-items-center flex-wrap">
+    <form th:action="@{/admin/division-added}" method="post">
+        <div class="form-group">
+            <h4 class="text-primary text-center">New Division Added</h4>
+        </div>
+        <div class="form-group">
+                <label for="divisionName">Division Name:</label>
+                <input type="text" class="form-control" id="divisionName" name="divisionName" required>
+        </div>
+        <button type="button" class="btn btn-primary click" onclick="divisionAdded()">Submit</button>
+    </form>
+</div>
+</body>
+</html>

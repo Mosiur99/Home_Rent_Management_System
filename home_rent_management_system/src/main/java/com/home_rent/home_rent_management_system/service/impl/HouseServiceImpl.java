@@ -1,7 +1,6 @@
 package com.home_rent.home_rent_management_system.service.impl;
 
 import com.home_rent.home_rent_management_system.entity.House;
-import com.home_rent.home_rent_management_system.entity.enums.Division;
 import com.home_rent.home_rent_management_system.entity.enums.Floor;
 import com.home_rent.home_rent_management_system.entity.enums.HouseType;
 import com.home_rent.home_rent_management_system.entity.enums.RentFor;
@@ -38,10 +37,10 @@ public class HouseServiceImpl implements HouseService {
         return houseRepository.findAll();
     }
 
-    @Override
-    public List<House> getHousesByDivision(Division division) {
-        return houseRepository.getHousesByDivision(division);
-    }
+//    @Override
+//    public List<House> getHousesByDivision(Division division) {
+//        return houseRepository.getHousesByDivision(division);
+//    }
 
     @Override
     public void houseAdded(Floor floor,
@@ -51,7 +50,6 @@ public class HouseServiceImpl implements HouseService {
                            Long roadNumber,
                            String houseName,
                            Long houseNumber,
-                           Division division,
                            String description,
                            HouseType houseType,
                            LocalDate availableDate) {
@@ -63,7 +61,6 @@ public class HouseServiceImpl implements HouseService {
         house.setRoadNumber(roadNumber);
         house.setHouseName(houseName);
         house.setHouseNumber(houseNumber);
-        house.setDivision(division);
         house.setDescription(description);
         house.setHouseType(houseType);
         house.setAvailableDate(availableDate);

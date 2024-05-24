@@ -44,9 +44,6 @@ public class House {
     private String description;
 
     @Enumerated(EnumType.ORDINAL)
-    private Division division;
-
-    @Enumerated(EnumType.ORDINAL)
     private RentFor rentFor;
 
     @Enumerated(EnumType.ORDINAL)
