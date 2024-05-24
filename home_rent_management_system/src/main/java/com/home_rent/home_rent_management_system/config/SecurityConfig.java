@@ -1,5 +1,6 @@
 package com.home_rent.home_rent_management_system.config;
 
+import com.home_rent.home_rent_management_system.entity.enums.Role;
 import com.home_rent.home_rent_management_system.service.impl.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -34,8 +35,9 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(registry -> {
                     registry.requestMatchers("/home", "/signup", "/houses", "/houses/**",
-                            "/house/**", "/add-review", "/get-reviews").permitAll();
-                    registry.requestMatchers("/user/**").hasRole("USER");
+                            "/house/**", "/add-review", "/get-reviews", "/admin-set").permitAll();
+                    registry.requestMatchers("/user/**").hasRole(Role.USER.name());
+                    registry.requestMatchers("/admin/**").hasRole(Role.ADMIN.name());
                     registry.anyRequest().authenticated();
                 })
                 .formLogin(httpSecurityFormLoginConfigurer -> {
