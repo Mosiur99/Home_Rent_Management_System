@@ -12,6 +12,6 @@ public interface HouseRepository extends JpaRepository<House, Long> {
     @Query(value = "SELECT house FROM House house WHERE house.id = :houseId")
     House getHouse(@Param("houseId") Long houseId);
 
-    @Query(value = "SELECT house FROM House house WHERE house.division = :division")
-    List<House> getHousesByDivision(@Param("division") Division division);
+//    @Query(value = "SELECT house FROM House house WHERE house.division = :division")
+//    List<House> getHousesByDivision(@Param("division") Division division);
 }
